@@ -16,4 +16,9 @@ describe('Função adicionarNota', () => {
     test('Deve adicionar corretamente uma nova nota ao array', () => {
         expect(adicionarNota([6, 7], 9)).toEqual([6, 7, 9]);
     });
+
+    test('Deve lançar um erro ao adicionar uma nota inválida (menor que 0 ou maior que 10)', () => {
+         expect(() => adicionarNota([6, 7], -1)).toThrow('Nota inválida');
+         expect(() => adicionarNota([5, 7], 11)).toThrow('Nota inválida');
+     });
 });
